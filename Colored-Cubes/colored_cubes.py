@@ -1,7 +1,7 @@
 """
 Author: Sedrick Thomas
 Created: April 2020
-Excercise 15-1: Cubes
+Excercise 15-2: Colored Cubes
 """
 import matplotlib.pyplot as plt
 
