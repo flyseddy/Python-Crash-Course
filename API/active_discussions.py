@@ -28,10 +28,13 @@ for submission_id in submission_ids[:30]:
     response_dict = r.json()
 
     # Values for the graph
-    title = response_dict['title']
-    comments = response_dict['descendants']
-    discussion_url = response_dict['url']
-    label_link = f"<a href='{discussion_url}'>{title}</a>"
+    try:
+        title = response_dict['title']
+        comments = response_dict['descendants']
+        discussion_url = response_dict['url']
+        label_link = f"<a href='{discussion_url}'>{title}</a>"
+    except KeyError:
+        pass
 
     # Add values to the list
     y_list.append(comments)
@@ -62,6 +65,6 @@ for submission_id in submission_ids[:30]:
             'tickfont': {'size': 14},
         },
     }
-
+# Plots the data
 fig = {'data': data, 'layout': my_layout}
 offline.plot(fig, filename='comments.html')
